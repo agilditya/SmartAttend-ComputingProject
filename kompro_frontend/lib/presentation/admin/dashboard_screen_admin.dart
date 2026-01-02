@@ -674,7 +674,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                     ),
                     _buildTimeDisplay(
                       "Check-Out",
-                      _getUserTimeToday(uId, 'check-out'),
+                      _getUserTimeToday(uId, 'checkout'),
                       Colors.orange,
                     ),
                   ],

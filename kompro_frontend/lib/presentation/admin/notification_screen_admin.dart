@@ -124,16 +124,30 @@ class _NotificationScreenAdminState extends State<NotificationScreenAdmin> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
                 onPressed: () async {
-                  if (titleController.text.isNotEmpty &&
-                      msgController.text.isNotEmpty) {
-                    await _authService.addNotificationGeneral(
-                      titleController.text,
-                      msgController.text,
-                    );
+                  if (titleController.text.trim().isNotEmpty &&
+                      msgController.text.trim().isNotEmpty) {
+                    try {
+                      await _authService.addNotificationGeneral(
+                        titleController.text,
+                        msgController.text,
+                      );
+                      if (context.mounted) Navigator.pop(context);
+                      _showSnackBar(
+                        "Broadcast announcement has been created",
+                        Colors.green,
+                      );
+                      _fetchNotif();
+                    } catch (e) {
+                      // Penanganan jika gagal kirim
+                      _showSnackBar("Failed to broadcast: $e", Colors.red);
+                    }
+                  } else {
+                    // Peringatan jika input kosong
+                    _showSnackBar("Please fill in all fields", Colors.orange);
                   }
                 },
                 child: const Text(
-                  "Send to All",
+                  "Create",
                   style: TextStyle(color: Colors.white),
                 ),
               ),
