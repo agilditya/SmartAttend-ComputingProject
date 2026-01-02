@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../../../data/services/auth_service.dart';
+import 'dashboard_screen.dart';
 
 class HistoryScreen extends StatefulWidget {
   final int userId;
@@ -300,7 +301,15 @@ class _HistoryScreenState extends State<HistoryScreen> {
             icon: Icons.home_rounded,
             label: "HOME",
             isSelected: false,
-            onTap: () => Navigator.pop(context),
+            onTap: () {
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DashboardScreen(userId: widget.userId),
+                ),
+                (route) => false,
+              );
+            },
           ),
           const SizedBox(width: 40),
           _buildNavItem(
