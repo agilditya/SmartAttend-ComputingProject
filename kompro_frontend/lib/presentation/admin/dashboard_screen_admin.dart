@@ -570,7 +570,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
   Widget _buildActionGrid() => Row(
     children: [
       _buildGridItem(
-        "Notification",
+        "Announcement",
         Icons.notifications_none,
         Colors.orange,
         () => Navigator.push(
