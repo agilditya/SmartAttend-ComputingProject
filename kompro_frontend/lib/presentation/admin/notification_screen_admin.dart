@@ -92,7 +92,7 @@ class _NotificationScreenAdminState extends State<NotificationScreenAdmin> {
               borderRadius: BorderRadius.circular(15),
             ),
             title: const Text(
-              "Create New Announcement",
+              "Create Announcement",
               style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
             ),
             content: Column(
@@ -173,7 +173,7 @@ class _NotificationScreenAdminState extends State<NotificationScreenAdmin> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text(
-          "Manage Notifications",
+          "Manage Announcements",
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue),
         ),
         backgroundColor: Colors.white,
